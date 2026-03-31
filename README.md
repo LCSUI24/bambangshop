@@ -82,5 +82,7 @@ This is the place for you to write reflections:
 3. Kita tetap membutuhkan DashMap karena singleton hanya design pattern untuk memastikan apakah hanya ada satu instance objek, tetapi tidak otomatis menyelesaikan masalah race condition di Rust. Karena variabel tersebut bersifat global/statis yang diakses oleh banyak thread, kita memerlukan struktur data seperti DashMap agar data tetap konsisten dan aman.
 
 #### Reflection Publisher-2
-
+1. Karena berdasarkan prinsip SRP satu class hanya boleh memiliki satu tujuan atau fungsionalitas. Maka dari itu kita memisah Repository yang bertujuan untuk logika data ke database. Sedangkan Service bertujuan untuk logika bisnis dari aplikasinya. Jadi fungsi model hanya untuk bentuk atau representasi dari data saja.
+2. Maka kode akan menumppuk di model dan setiap model akan berinteraksi ke model lain dengan cara berbeda, misal model Notification harus tahu cara mengakses data di Subscriber, dan Subscriber mungkin harus tahu logika Product. Karena logika bisnis ada di model juga itu akan susah di reuse, jadi kita harus menulis logika yang sama berulang ulang dan jika kita mengubah suatu kode ada kemungkinan itu bisa merusak program dan merembet.
+3. Postman sangat membantu saya dalam mengerjakan tugas kelompok ataupun proyek pribadi dalam memvalidasi API (memastikan memberikan response yang diinginkan/format json yang sesuai) secara instan tanpa harus membuat front-end nya terlebih dahulu. Salah satu fitur yang menarik menurut saya adalah Collections karena dapat mengelompokkan semua request API proyek agar bisa dibagikan ke anggota tim atau untuk berpindah device.
 #### Reflection Publisher-3
