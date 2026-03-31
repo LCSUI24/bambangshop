@@ -77,6 +77,9 @@ This is the place for you to write reflections:
 ### Mandatory (Publisher) Reflections
 
 #### Reflection Publisher-1
+1. Menurut saya single model struct tidak cukup, harus dibuat interface/trait untuk mempermudah mengextend jenis jenis subscriber kedepannya
+2. Penggunaan DashMap lebih baik daripada Vec. Karena url harus unik, DashMap dapat ngecek unik dan pencarian/penghapusan subscriber berdasarkan kunci (url) dengan lebih efisien. Jika menggunakan Vec, kita harus melakukan iterasi manual untuk memastikan tidak ada duplikasi yang kurang efisien.
+3. Kita tetap membutuhkan DashMap karena singleton hanya design pattern untuk memastikan apakah hanya ada satu instance objek, tetapi tidak otomatis menyelesaikan masalah race condition di Rust. Karena variabel tersebut bersifat global/statis yang diakses oleh banyak thread, kita memerlukan struktur data seperti DashMap agar data tetap konsisten dan aman.
 
 #### Reflection Publisher-2
 
