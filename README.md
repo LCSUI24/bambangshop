@@ -86,3 +86,13 @@ This is the place for you to write reflections:
 2. Maka kode akan menumppuk di model dan setiap model akan berinteraksi ke model lain dengan cara berbeda, misal model Notification harus tahu cara mengakses data di Subscriber, dan Subscriber mungkin harus tahu logika Product. Karena logika bisnis ada di model juga itu akan susah di reuse, jadi kita harus menulis logika yang sama berulang ulang dan jika kita mengubah suatu kode ada kemungkinan itu bisa merusak program dan merembet.
 3. Postman sangat membantu saya dalam mengerjakan tugas kelompok ataupun proyek pribadi dalam memvalidasi API (memastikan memberikan response yang diinginkan/format json yang sesuai) secara instan tanpa harus membuat front-end nya terlebih dahulu. Salah satu fitur yang menarik menurut saya adalah Collections karena dapat mengelompokkan semua request API proyek agar bisa dibagikan ke anggota tim atau untuk berpindah device.
 #### Reflection Publisher-3
+1. Dalam tutorial ini, kita menggunakan Push Model. Karena NotificationService (Publisher) mengirimkan data (Notification struct) ke metode update milik Subscriber.
+2. 
+Advantages: 
+Fleksibel, karena Subscriber bisa memilih data apa yang mereka butuhkan saja.
+Memiliki Kontrol, karena Subscriber dapat menentukan kapan mereka ingin mengambil data tersebut.
+Disadvantages:
+Kurang Efisiesn, karena dibutuhkan dua kali komunikasi (satu untuk notifikasi, satu untuk pengambilan data).
+3. 
+- Efek Domino Jika Gagal: Jika ada satu subscriber yang URL-nya lambat merespons atau sedang down, proses utama aplikasi akan "hang" atau loading menunggu timeout HTTP request tersebut.
+- Skalabilitas Buruk: Semakin banyak jumlah subscriber, semakin lama waktu yang dibutuhkan Shop Owner untuk mengupload satu produk, karena sistem harus menyelesaikan antrian pengiriman notifikasi secara berurutan.
